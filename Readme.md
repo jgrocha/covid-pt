@@ -48,7 +48,7 @@ Para apresentar os dados no QGIS, faz-se uma relação entre as tabelas dos conc
 
 A título de exemplo, inclui-se o mapa com os valores mais recentes por concelho.
 
-![](mapas/concelho_continente_20200330.png)
+![](mapas/concelho_continente_20200331.png)
 
 # Origem alternativa dos dados
 
