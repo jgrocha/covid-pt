@@ -38,7 +38,7 @@ Apenas são utilizados os sistemas de coordenadas Portugueses, para o Continente
 | ---------------------------------------------------------- | ---------------------- | --------------------------------------------------------- |
 | [situacao_epidemiologica.csv](situacao_epidemiologica.csv) | CSV (Folha de cálculo) | Situação epidemiológica para cada um dos dias             |
 | [confirmados_concelho.csv](confirmados_concelho.csv)       | CSV (Folha de cálculo) | Número de casos para cada concelho, para cada um dos dias |
-| [covid-pt-2020-04-04.gpkg](covid-pt-2020-04-04.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos |
+| [covid-pt-2020-04-05.gpkg](covid-pt-2020-04-05.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos |
 
 ## Mapas
 
@@ -48,7 +48,7 @@ Para apresentar os dados no QGIS, faz-se uma relação entre as tabelas dos conc
 
 A título de exemplo, inclui-se o mapa com os valores mais recentes por concelho.
 
-![](mapas/concelho_continente_20200404.png)
+![](mapas/concelho_continente_20200405.png)
 
 # Origem alternativa dos dados
 
