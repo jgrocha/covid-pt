@@ -38,7 +38,7 @@ Apenas são utilizados os sistemas de coordenadas Portugueses, para o Continente
 | ---------------------------------------------------------- | ---------------------- | --------------------------------------------------------- |
 | [situacao_epidemiologica.csv](situacao_epidemiologica.csv) | CSV (Folha de cálculo) | Situação epidemiológica para cada um dos dias             |
 | [confirmados_concelho.csv](confirmados_concelho.csv)       | CSV (Folha de cálculo) | Número de casos para cada concelho, para cada um dos dias |
-| [covid-pt-2020-04-16.gpkg](covid-pt-2020-04-16.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos |
+| [covid-pt-2020-04-17.gpkg](covid-pt-2020-04-17.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos |
 
 ## Mapas
 
@@ -46,9 +46,11 @@ Os mapas podem ser produzidos usando o software [QGIS](https://www.qgis.org/pt_P
 
 Para apresentar os dados no QGIS, faz-se uma relação entre as tabelas dos concelhos (que estão no Geopackage) com a tabela `confirmados_concelho` (que também está no GeoPackage). A chave de ligação é o campo `dico`.
 
-A título de exemplo, inclui-se o mapa com os valores mais recentes por concelho.
+A título de exemplo, inclui-se o mapa com os valores mais recentes por concelho para o continente e para a Madeira:
 
-![](mapas/concelho_continente_20200416.png)
+![](mapas/concelho_continente_20200417.png)
+
+![](mapas/madeira_20200417.png)
 
 # Origem alternativa dos dados
 
