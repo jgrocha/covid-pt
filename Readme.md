@@ -39,7 +39,7 @@ Apenas são utilizados os sistemas de coordenadas Portugueses, para o Continente
 | [situacao_epidemiologica.csv](situacao_epidemiologica.csv) | CSV (Folha de cálculo) | Situação epidemiológica para cada um dos dias             |
 | [confirmados_concelho.csv](confirmados_concelho.csv)       | CSV (Folha de cálculo) | Número de casos para cada concelho, para cada um dos dias |
 | [confirmados_distrito_ilha.csv](confirmados_distrito_ilha.csv)  | CSV (Folha de cálculo) | Número de casos, para cada um dos dias, agrupados por distrito (no continente) e por ilha (nas regiões autónomas) |
-| [covid-pt-2020-04-17.gpkg](covid-pt-2020-04-17.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos (do continente e regiões autónomas), dos distritos e das ilhas |
+| [covid-pt-2020-04-18.gpkg](covid-pt-2020-04-18.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos (do continente e regiões autónomas), dos distritos e das ilhas |
 
 ## Mapas
 
@@ -49,13 +49,13 @@ Para apresentar os dados no QGIS, faz-se uma relação entre as tabelas dos conc
 
 A título de exemplo, inclui-se o mapa com os valores mais recentes por concelho para o continente e para a Madeira:
 
-![](mapas/concelho_continente_20200417.png)
+![](mapas/concelho_continente_20200418.png)
 
-![](mapas/madeira_20200417.png)
+![](mapas/madeira_20200418.png)
 
-Usando a tabela [confirmados_distrito_ilha.csv](confirmados_distrito_ilha.csv), podem-se fazer mapas com os dados por distrito, como por exemplo:
+Usando a tabela [confirmados_distrito_ilha.csv](confirmados_distrito_ilha.csv), podem-se fazer mapas com os dados por distrito (ou por ilhas, para as regiões autónomas), como por exemplo:
 
-![](mapas/distrito_continente_20200417.png)
+![](mapas/distrito_continente_20200418.png)
 
 # Origem alternativa dos dados
 
