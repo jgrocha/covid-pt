@@ -62,7 +62,7 @@ parameters = {
     'SAVE_STYLES': True}
 
 # processing.algorithmHelp("native:package")
-# processing.run("native:package", parameters)
+processing.run("native:package", parameters)
 
 manager = QgsProject.instance().layoutManager()
 
