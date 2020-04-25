@@ -16,7 +16,7 @@ Se desenvolveu uma visualização, um modelo ou um algoritmo de previsão, subme
 
 Os dados sobre os casos de COVID-19 são atualizados a partir do site da [DGS](https://covid19.min-saude.pt/). Os números avançados pela DGS estão publicados nos [relatórios de situação](https://covid19.min-saude.pt/relatorio-de-situacao/).
 
-Os dados sobre a situação epidemiológica são introduzidos manualmente. Os dados por concelhos são introduzidos de forma semi-automática.
+Os dados sobre a situação epidemiológica são extraídos automaticamente dos PDF através do programa [relatorio.py](Relatórios/relatorio.py), a partir de 2020-04-21. Antes dessa data, a extração era semi-automática e pode conter erros.
 
 ### Limites dos Concelhos 
 
@@ -30,7 +30,7 @@ Todos os dados estão escritos com a codificação UTF-8.
 
 ### Sistemas de coordenadas
 
-Apenas são utilizados os sistemas de coordenadas Portugueses, para o Continente, RAM e RAA.
+Apenas são utilizados os sistemas de coordenadas Portugueses, para o Continente (EPSG:3763), RAM e RAA (EPSG:5016).
 
 ## Dados
 
@@ -39,7 +39,7 @@ Apenas são utilizados os sistemas de coordenadas Portugueses, para o Continente
 | [situacao_epidemiologica.csv](situacao_epidemiologica.csv) | CSV (Folha de cálculo) | Situação epidemiológica para cada um dos dias             |
 | [confirmados_concelho.csv](confirmados_concelho.csv)       | CSV (Folha de cálculo) | Número de casos para cada concelho, para cada um dos dias |
 | [confirmados_distrito_ilha.csv](confirmados_distrito_ilha.csv)  | CSV (Folha de cálculo) | Número de casos, para cada um dos dias, agrupados por distrito (no continente) e por ilha (nas regiões autónomas) |
-| [covid-pt-2020-04-20.gpkg](covid-pt-2020-04-20.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos (do continente e regiões autónomas), dos distritos e das ilhas |
+| [covid-pt-latest.gpkg](covid-pt-latest.gpkg)       | GeoPackage (QGIS)      | Além das tabelas anteriores, contém os polígonos dos concelhos (do continente e regiões autónomas), dos distritos e das ilhas |
 
 ## Mapas
 

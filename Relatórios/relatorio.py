@@ -27,7 +27,8 @@ def best_match(sqlfile, name, cases):
          dico = '0000'
          concelho = name
          print("--ERROR------------------------------")
-         # print(name, canonical, cases)
+         print(name, canonical, cases)
+         print("--ERROR------------------------------")
    sqlfile.write("-- {} \n".format( concelho ))
    altdate = datetime.fromisoformat(args.date)
    sqlfile.write("UPDATE public.confirmados_concelho SET \"{}\" = {} where dico = '{}';\n".format( altdate.strftime("%d/%m/%Y"), cases, dico ))
@@ -36,14 +37,28 @@ def fix_municipality_list(municipality):
    # municipalities with names broken
    idx = 0
    while idx < len(municipality):
-      if re.match('Penaguião', municipality[idx], re.IGNORECASE):
+      # print("{} > {}".format(idx, municipality[idx]))
+      if re.match('^Penaguião', municipality[idx], re.IGNORECASE):
          municipality[idx-1] = " ".join([ municipality[idx-1], municipality[idx] ])
          municipality.pop(idx)
+      if re.match('^Rodrigo', municipality[idx], re.IGNORECASE):
+         municipality[idx-1] = " ".join([ municipality[idx-1], municipality[idx] ])
+         municipality.pop(idx)
+      if re.match('^Monsaraz', municipality[idx], re.IGNORECASE):
+         municipality[idx-1] = " ".join([ municipality[idx-1], municipality[idx] ])
+         municipality.pop(idx)
+      m = re.search('^(\D+) (\d+)$', municipality[idx])
+      if m:
+         municipality[idx] = m.group(1)
+         municipality.insert(idx+1, m.group(2))
+         #print("..............{}..........{}..{}.....".format(municipality[idx], m.group(1), m.group(2)))
+         idx += 1         
       idx += 1
    return municipality
 
 def parse_municipality(municipality, sqlfile):
    municipality = fix_municipality_list(municipality)
+   # print(municipality)
    idx = 0
    while idx < len(municipality):
       if not municipality[idx].isdigit():

@@ -26,6 +26,7 @@ Inserir na base de dados:
 
 ```bash
 psql service=covid -f 50_DGS_boletim_20200421.sql
+psql service=covid -c 'update public.confirmados_concelho set mais_recente = "21/04/2020"'
 ```
 
 Exportar para CSV:
@@ -33,4 +34,18 @@ Exportar para CSV:
 ```bash
 psql service=covid -c "COPY situacao_epidemiologica TO STDOUT DELIMITER ',' CSV HEADER QUOTE '\"' FORCE QUOTE * " > ../situacao_epidemiologica.csv
 psql service=covid -c "COPY confirmados_concelho TO STDOUT DELIMITER ',' CSV HEADER QUOTE '\"' FORCE QUOTE * " > ../confirmados_concelho.csv
+```
+
+Gerar o geopackage e os mapas em PNG, a partir do projeto QGIS:
+
+```bash
+cd ../geopackages
+python3 2geopackage.py 2020-04-21
+```
+
+Atualizar o link para o último geopackage:
+
+```bash
+cd ..
+./make-latest.sh
 ```
