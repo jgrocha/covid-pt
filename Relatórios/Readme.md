@@ -20,6 +20,7 @@ Gerar o sql:
 
 ```bash
 cd Relatórios/
+wget https://covid19.min-saude.pt/wp-content/uploads/2020/04/50_DGS_boletim_20200421.pdf
 ./relatorio.py 2020-04-21 https://covid19.min-saude.pt/wp-content/uploads/2020/04/50_DGS_boletim_20200421.pdf 50_DGS_boletim_20200421.sql
 ```
 Inserir na base de dados:

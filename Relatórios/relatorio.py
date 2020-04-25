@@ -9,80 +9,37 @@ from concelhos import municipalities
 import difflib
 from datetime import datetime
 
-def best_match(sqlfile, name, cases):
-   canonical = difflib.get_close_matches(name.upper(), municipalities.keys(), n=1)
-   dico = ''
-   concelho = ''
-   if len(canonical) == 1:
-      dico = municipalities[canonical[0]]
-      concelho = canonical[0]
-      # print(name, canonical[0], dico, cases)
-      print(canonical[0], end =" ")
-   else:
-      if name == "Lagoa (Faro)":
-         dico = '0806'
-         concelho = 'LAGOA'
-         # print(name, 'LAGOA', '0806', cases)
-      else:
-         dico = '0000'
-         concelho = name
-         print("--ERROR------------------------------")
-         print(name, canonical, cases)
-         print("--ERROR------------------------------")
-   sqlfile.write("-- {} \n".format( concelho ))
-   altdate = datetime.fromisoformat(args.date)
-   sqlfile.write("UPDATE public.confirmados_concelho SET \"{}\" = {} where dico = '{}';\n".format( altdate.strftime("%d/%m/%Y"), cases, dico ))
+def generate_sql(sqlfile, concelhos, casos):
+   idx = 0
+   while idx < len(concelhos):
+      dico = municipalities[concelhos[idx]]
+      sqlfile.write("-- {} \n".format( concelhos[idx] ))
+      altdate = datetime.fromisoformat(args.date)
+      sqlfile.write("UPDATE public.confirmados_concelho SET \"{}\" = {} where dico = '{}';\n".format( altdate.strftime("%d/%m/%Y"), casos[idx], dico ))
+      idx += 1
 
 def fix_municipality_list(municipality):
-   # municipalities with names broken
    idx = 0
    while idx < len(municipality):
-      # print("{} > {}".format(idx, municipality[idx]))
-      if re.match('^Penaguião', municipality[idx], re.IGNORECASE):
-         municipality[idx-1] = " ".join([ municipality[idx-1], municipality[idx] ])
-         municipality.pop(idx)
-      if re.match('^Rodrigo', municipality[idx], re.IGNORECASE):
-         municipality[idx-1] = " ".join([ municipality[idx-1], municipality[idx] ])
-         municipality.pop(idx)
-      if re.match('^Monsaraz', municipality[idx], re.IGNORECASE):
-         municipality[idx-1] = " ".join([ municipality[idx-1], municipality[idx] ])
-         municipality.pop(idx)
-      m = re.search('^(\D+) (\d+)$', municipality[idx])
-      if m:
-         municipality[idx] = m.group(1)
-         municipality.insert(idx+1, m.group(2))
-         #print("..............{}..........{}..{}.....".format(municipality[idx], m.group(1), m.group(2)))
-         idx += 1         
+      canonical = difflib.get_close_matches(municipality[idx].upper(), municipalities.keys(), n=1)
+      if canonical:
+         score_alone = difflib.SequenceMatcher(None, municipality[idx].upper(), canonical[0]).ratio()
+         print("{} → {} → {}".format(score_alone, municipality[idx].upper(), canonical[0]))
+         if score_alone < 1.0 and idx < len(municipality)-1:
+            score_with_next = difflib.SequenceMatcher(None, " ".join([municipality[idx].upper(), municipality[idx+1].upper()]), canonical[0]).ratio()
+            print(" {} → {}".format(score_with_next, " ".join([municipality[idx].upper(), municipality[idx+1].upper()]) ))
+            if score_alone < score_with_next:
+               canonical = difflib.get_close_matches(" ".join([municipality[idx].upper(), municipality[idx+1].upper()]), municipalities.keys(), n=1)
+               municipality[idx] = canonical[0]
+               municipality.pop(idx+1)
+            else:
+               municipality[idx] = canonical[0]
+         else:
+            municipality[idx] = canonical[0]
+      else:
+         print("{} → {} → {}".format(0.0, municipality[idx].upper(), '--SEM MATCH--'))
       idx += 1
    return municipality
-
-def parse_municipality(municipality, sqlfile):
-   municipality = fix_municipality_list(municipality)
-   # print(municipality)
-   idx = 0
-   while idx < len(municipality):
-      if not municipality[idx].isdigit():
-         if (idx+1) < len(municipality) and not municipality[idx+1].isdigit():
-            if (idx+2) < len(municipality) and not municipality[idx+2].isdigit():
-               if not municipality[idx+3].isdigit():
-                  # print(municipality[idx])
-                  best_match(sqlfile, municipality[idx], municipality[idx+4])
-                  best_match(sqlfile, municipality[idx+1], municipality[idx+5])
-                  best_match(sqlfile, municipality[idx+2], municipality[idx+6])
-                  best_match(sqlfile, municipality[idx+3], municipality[idx+7])
-                  idx += 7
-               else:
-                  best_match(sqlfile, municipality[idx], municipality[idx+3])
-                  best_match(sqlfile, municipality[idx+1], municipality[idx+4])
-                  best_match(sqlfile, municipality[idx+2], municipality[idx+5])
-                  idx += 5
-            else:
-               best_match(sqlfile, municipality[idx], municipality[idx+2])
-               best_match(sqlfile, municipality[idx+1], municipality[idx+3])
-               idx += 3
-         else:
-            best_match(sqlfile, municipality[idx], municipality[idx+1])
-      idx += 1
 
 
 parser = argparse.ArgumentParser(description='Process DGS report')
@@ -230,53 +187,64 @@ else:
    sqlfile.write("UPDATE public.situacao_epidemiologica SET obitos_feminino_70_79 = {} where data_relatorio = '{}';\n".format(valores[7], args.date))
    sqlfile.write("UPDATE public.situacao_epidemiologica SET obitos_feminino_80_sup = {} where data_relatorio = '{}';\n".format(valores[8], args.date))
 
-# concelhos
-# 1 coluna
-pagina = 3
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 70 -y 420 -W 214 -H 1166 {} -".format(pagina, pagina, report))
-dados = list(filter(None, stdoutdata.splitlines()))
-# print(dados)
-dados.remove('CONCELHO')
-dados.remove('NÚMERO')
-dados.remove('DE CASOS')
-parse_municipality(dados, sqlfile)
-
-# 2 coluna
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 300 -y 420 -W 210 -H 1166 {} -".format(pagina, pagina, report))
-dados = list(filter(None, stdoutdata.splitlines()))
-# print(dados)
-dados.remove('CONCELHO')
-dados.remove('NÚMERO')
-dados.remove('DE CASOS')
-parse_municipality(dados, sqlfile)
-
-# 3 coluna
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 515 -y 420 -W 215 -H 1166 {} -".format(pagina, pagina, report))
-dados = list(filter(None, stdoutdata.splitlines()))
-# print(dados)
-dados.remove('CONCELHO')
-dados.remove('NÚMERO')
-dados.remove('DE CASOS')
-parse_municipality(dados, sqlfile)
-
-# 4 coluna
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 740 -y 420 -W 210 -H 1166 {} -".format(pagina, pagina, report))
-dados = list(filter(None, stdoutdata.splitlines()))
-# print(dados)
-dados.remove('CONCELHO')
-dados.remove('NÚMERO')
-dados.remove('DE CASOS')
-parse_municipality(dados, sqlfile)
-
-# 5 coluna
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 950 -y 420 -W 210 -H 1166 {} -".format(pagina, pagina, report))
-dados = list(filter(None, stdoutdata.splitlines()))
-# print(dados)
-dados.remove('CONCELHO')
-dados.remove('NÚMERO')
-dados.remove('DE CASOS')
-parse_municipality(dados, sqlfile)
-
+# # concelhos
 print()
+pagina = 3
+
+#coluna 1
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 70 -y 453 -W 148 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 219 -y 453 -W 57 -H 1135 {} -".format(pagina, pagina, report))
+dados = list(filter(None, stdoutdata.splitlines()))
+casos = list(filter(None, stdoutcasos.splitlines()))
+# print(dados)
+dados = fix_municipality_list(dados)
+print(casos)
+print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
+generate_sql(sqlfile, dados, casos)
+
+#coluna 2
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 300 -y 453 -W 144 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 444 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
+dados = list(filter(None, stdoutdata.splitlines()))
+casos = list(filter(None, stdoutcasos.splitlines()))
+# print(dados)
+dados = fix_municipality_list(dados)
+print(casos)
+print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
+generate_sql(sqlfile, dados, casos)
+
+#coluna 3
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 520 -y 453 -W 148 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 668 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
+dados = list(filter(None, stdoutdata.splitlines()))
+casos = list(filter(None, stdoutcasos.splitlines()))
+# print(dados)
+dados = fix_municipality_list(dados)
+print(casos)
+print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
+generate_sql(sqlfile, dados, casos)
+
+#coluna 4
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 740 -y 453 -W 134 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 879 -y 453 -W 50 -H 1135 {} -".format(pagina, pagina, report))
+dados = list(filter(None, stdoutdata.splitlines()))
+casos = list(filter(None, stdoutcasos.splitlines()))
+# print(dados)
+dados = fix_municipality_list(dados)
+print(casos)
+print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
+generate_sql(sqlfile, dados, casos)
+
+#coluna 5
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 952 -y 453 -W 146 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 1098 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
+dados = list(filter(None, stdoutdata.splitlines()))
+casos = list(filter(None, stdoutcasos.splitlines()))
+# print(dados)
+dados = fix_municipality_list(dados)
+print(casos)
+print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
+generate_sql(sqlfile, dados, casos)
+
 
 sqlfile.close()
