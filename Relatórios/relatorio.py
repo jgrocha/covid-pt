@@ -12,7 +12,10 @@ from datetime import datetime
 def generate_sql(sqlfile, concelhos, casos):
    idx = 0
    while idx < len(concelhos):
-      dico = municipalities[concelhos[idx]]
+      if concelhos[idx] == 'Lagoa (Faro)':
+         dico = '0806'
+      else:
+         dico = municipalities[concelhos[idx]]
       sqlfile.write("-- {} \n".format( concelhos[idx] ))
       altdate = datetime.fromisoformat(args.date)
       sqlfile.write("UPDATE public.confirmados_concelho SET \"{}\" = {} where dico = '{}';\n".format( altdate.strftime("%d/%m/%Y"), casos[idx], dico ))
@@ -237,7 +240,7 @@ generate_sql(sqlfile, dados, casos)
 
 #coluna 5
 stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 952 -y 453 -W 146 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 1098 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 1102 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)

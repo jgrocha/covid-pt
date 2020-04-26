@@ -33,8 +33,8 @@ psql service=covid -c 'update public.confirmados_concelho set mais_recente = "21
 Exportar para CSV:
 
 ```bash
-psql service=covid -c "COPY situacao_epidemiologica TO STDOUT DELIMITER ',' CSV HEADER QUOTE '\"' FORCE QUOTE * " > ../situacao_epidemiologica.csv
-psql service=covid -c "COPY confirmados_concelho TO STDOUT DELIMITER ',' CSV HEADER QUOTE '\"' FORCE QUOTE * " > ../confirmados_concelho.csv
+psql service=covid -c "COPY situacao_epidemiologica TO STDOUT DELIMITER ',' CSV HEADER QUOTE '\"' FORCE QUOTE * " -o ../situacao_epidemiologica.csv
+psql service=covid -c "COPY confirmados_concelho TO STDOUT DELIMITER ',' CSV HEADER QUOTE '\"' FORCE QUOTE * " -o ../confirmados_concelho.csv
 ```
 
 Gerar o geopackage e os mapas em PNG, a partir do projeto QGIS:
@@ -49,4 +49,11 @@ Atualizar o link para o último geopackage:
 ```bash
 cd ..
 ./make-latest.sh
+```
+
+Dump da base de dados:
+
+```bash
+cd basededados
+pg_dump --verbose --host=localhost --port=5432 --username=covid --format=c --no-privileges --no-owner covid -f covid-20200421.backup
 ```
