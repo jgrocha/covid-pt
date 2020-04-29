@@ -20,14 +20,14 @@ Gerar o sql:
 
 ```bash
 cd Relatórios/
-wget https://covid19.min-saude.pt/wp-content/uploads/2020/04/50_DGS_boletim_20200421.pdf
-./relatorio.py 2020-04-21 https://covid19.min-saude.pt/wp-content/uploads/2020/04/50_DGS_boletim_20200421.pdf 50_DGS_boletim_20200421.sql
+wget https://covid19.min-saude.pt/wp-content/uploads/2020/04/58_DGS_boletim_20200429.pdf
+./relatorio.py 2020-04-29 https://covid19.min-saude.pt/wp-content/uploads/2020/04/57_DGS_boletim_20200428.pdf 58_DGS_boletim_20200429.sql
 ```
 Inserir na base de dados:
 
 ```bash
-psql service=covid -f 50_DGS_boletim_20200421.sql
-psql service=covid -c 'update public.confirmados_concelho set mais_recente = "21/04/2020"'
+psql service=covid -f 58_DGS_boletim_20200429.sql
+psql service=covid -c 'update public.confirmados_concelho set mais_recente = "29/04/2020"'
 ```
 
 Exportar para CSV:
@@ -41,7 +41,7 @@ Gerar o geopackage e os mapas em PNG, a partir do projeto QGIS:
 
 ```bash
 cd ../geopackages
-python3 2geopackage.py 2020-04-21
+python3 2geopackage.py 2020-04-29
 ```
 
 Atualizar o link para o último geopackage:
@@ -55,5 +55,5 @@ Dump da base de dados:
 
 ```bash
 cd basededados
-pg_dump --verbose --host=localhost --port=5432 --username=covid --format=c --no-privileges --no-owner covid -f covid-20200421.backup
+pg_dump --verbose --host=localhost --port=5432 --username=covid --format=c --no-privileges --no-owner covid -f covid-20200429.backup
 ```
