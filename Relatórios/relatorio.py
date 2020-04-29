@@ -14,6 +14,8 @@ def generate_sql(sqlfile, concelhos, casos):
    while idx < len(concelhos):
       if concelhos[idx] == 'Lagoa (Faro)':
          dico = '0806'
+      elif concelhos[idx] == 'Calheta (Madeira)':
+         dico = '3101'
       else:
          dico = municipalities[concelhos[idx]]
       sqlfile.write("-- {} \n".format( concelhos[idx] ))
