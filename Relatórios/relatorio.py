@@ -231,7 +231,7 @@ generate_sql(sqlfile, dados, casos)
 
 #coluna 4
 stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 740 -y 453 -W 134 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 879 -y 453 -W 50 -H 1135 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 879 -y 453 -W 65 -H 1135 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)

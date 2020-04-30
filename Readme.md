@@ -57,8 +57,12 @@ Usando a tabela [confirmados_distrito_ilha.csv](confirmados_distrito_ilha.csv), 
 
 ![](mapas/distrito_continente_20200420.png)
 
-# Origem alternativa dos dados
+# Origem alternativa dos dados de Portugal
 
 Os dados da DGS também estão disponível a partir do [Ponto de Situação Atual em Portugal](https://covid19.min-saude.pt/ponto-de-situacao-atual-em-portugal/). Contudo, os dados estão (também) a ser introduzidos manualmente e têm diversas gralhas. 
 
 Sendo este um repositório aberto à participação, queremos eliminar os erros nos dados com a ajuda de todos. Se encontrar algum erro, por favor crie um *issue*.
+
+# Outras fontes de dados
+
+[European Centre for Disease Prevention and Control](https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases)
