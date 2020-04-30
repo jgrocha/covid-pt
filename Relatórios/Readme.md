@@ -57,3 +57,11 @@ Dump da base de dados:
 cd basededados
 pg_dump --verbose --host=localhost --port=5432 --username=covid --format=c --no-privileges --no-owner covid -f covid-20200429.backup
 ```
+
+Outros dados:
+
+```bash
+cd "../European Centre for Disease Prevention and Control"
+hoje=$(date '+%Y%m%d')
+wget https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/ -O $hoje.csv
+```
