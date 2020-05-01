@@ -19,15 +19,18 @@ O dicionário (na terminologia do Python) [concelhos.py](concelhos.py) é usado 
 Gerar o sql:
 
 ```bash
+hoje=$(date '+%Y%m%d')
+ho_je=$(date '+%Y-%m-%d')
+ho7je=$(date '+%d/%m/%Y')
 cd Relatórios/
-wget https://covid19.min-saude.pt/wp-content/uploads/2020/04/58_DGS_boletim_20200429.pdf
-./relatorio.py 2020-04-29 https://covid19.min-saude.pt/wp-content/uploads/2020/04/57_DGS_boletim_20200428.pdf 58_DGS_boletim_20200429.sql
+wget https://covid19.min-saude.pt/wp-content/uploads/2020/05/60_DGS_boletim_20200501.pdf
+./relatorio.py $ho_je https://covid19.min-saude.pt/wp-content/uploads/2020/05/60_DGS_boletim_20200501.pdf 60_DGS_boletim_20200501.sql
 ```
 Inserir na base de dados:
 
 ```bash
-psql service=covid -f 58_DGS_boletim_20200429.sql
-psql service=covid -c 'update public.confirmados_concelho set mais_recente = "29/04/2020"'
+psql service=covid -f 60_DGS_boletim_20200501.sql
+psql service=covid -c 'update public.confirmados_concelho set mais_recente = "'"$ho7je"'"'
 ```
 
 Exportar para CSV:
