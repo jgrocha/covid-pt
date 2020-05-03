@@ -44,7 +44,7 @@ Gerar o geopackage e os mapas em PNG, a partir do projeto QGIS:
 
 ```bash
 cd ../geopackages
-python3 2geopackage.py 2020-04-29
+python3 2geopackage.py $ho_je
 ```
 
 Atualizar o link para o último geopackage:
@@ -58,13 +58,12 @@ Dump da base de dados:
 
 ```bash
 cd basededados
-pg_dump --verbose --host=localhost --port=5432 --username=covid --format=c --no-privileges --no-owner covid -f covid-20200429.backup
+pg_dump --verbose --host=localhost --port=5432 --username=covid --format=c --no-privileges --no-owner covid -f covid-$hoje.backup
 ```
 
 Outros dados:
 
 ```bash
 cd "../European Centre for Disease Prevention and Control"
-hoje=$(date '+%Y%m%d')
 wget https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/ -O $hoje.csv
 ```
