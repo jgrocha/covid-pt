@@ -66,7 +66,7 @@ sqlfile.write("INSERT INTO public.situacao_epidemiologica (url,data_relatorio) V
 # 1a página
 pagina = 1
 stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 456 -y 873 -W 150 -H 723 {} -".format(pagina, pagina, report))
-dados = list(filter(None, [x.strip() for x in stdoutdata.splitlines()]))
+dados = list(filter(None, [x.strip(' *') for x in stdoutdata.splitlines()]))
 valores = [int(i) for i in dados] 
 print(valores);
 if len(valores) != 7:
