@@ -31,12 +31,17 @@ def fix_municipality_list(municipality):
          score_alone = difflib.SequenceMatcher(None, municipality[idx].upper(), canonical[0]).ratio()
          print("{} → {} → {}".format(score_alone, municipality[idx].upper(), canonical[0]))
          if score_alone < 1.0 and idx < len(municipality)-1:
-            score_with_next = difflib.SequenceMatcher(None, " ".join([municipality[idx].upper(), municipality[idx+1].upper()]), canonical[0]).ratio()
-            print(" {} → {}".format(score_with_next, " ".join([municipality[idx].upper(), municipality[idx+1].upper()]) ))
-            if score_alone < score_with_next:
-               canonical = difflib.get_close_matches(" ".join([municipality[idx].upper(), municipality[idx+1].upper()]), municipalities.keys(), n=1)
-               municipality[idx] = canonical[0]
-               municipality.pop(idx+1)
+            nome_potencial = " ".join([municipality[idx].upper(), municipality[idx+1].upper()])
+            potencial = difflib.get_close_matches( nome_potencial, municipalities.keys(), n=1)
+            if potencial:
+               score_with_next = difflib.SequenceMatcher(None, nome_potencial, potencial[0]).ratio()
+               print(" {} → {}".format(score_with_next, nome_potencial ))
+               if score_alone < score_with_next:
+                  potencial = difflib.get_close_matches( nome_potencial, municipalities.keys(), n=1)
+                  municipality[idx] = potencial[0]
+                  municipality.pop(idx+1)
+               else:
+                  municipality[idx] = canonical[0]
             else:
                municipality[idx] = canonical[0]
          else:
@@ -197,8 +202,8 @@ print()
 pagina = 3
 
 #coluna 1
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 70 -y 453 -W 148 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 219 -y 453 -W 57 -H 1135 {} -".format(pagina, pagina, report))
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 70 -y 453 -W 148 -H 1130 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 219 -y 453 -W 57 -H 1130 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -208,8 +213,8 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 2
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 300 -y 453 -W 144 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 444 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 300 -y 453 -W 144 -H 1130 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 444 -y 453 -W 53 -H 1130 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -219,8 +224,8 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 3
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 520 -y 453 -W 148 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 668 -y 453 -W 53 -H 1135 {} -".format(pagina, pagina, report))
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 520 -y 453 -W 148 -H 1130 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 668 -y 453 -W 53 -H 1130 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -230,8 +235,8 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 4
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 740 -y 453 -W 134 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 879 -y 453 -W 65 -H 1135 {} -".format(pagina, pagina, report))
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 740 -y 453 -W 134 -H 1130 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 879 -y 453 -W 65 -H 1130 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -241,8 +246,8 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 5
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 952 -y 453 -W 146 -H 1135 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 1102 -y 453 -W 65 -H 1135 {} -".format(pagina, pagina, report))
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 952 -y 453 -W 146 -H 1130 {} -".format(pagina, pagina, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 1102 -y 453 -W 65 -H 1130 {} -".format(pagina, pagina, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
