@@ -57,12 +57,25 @@ Usando a tabela [confirmados_distrito_ilha.csv](confirmados_distrito_ilha.csv), 
 
 ![](mapas/distrito_continente_20200420.png)
 
-# Origem alternativa dos dados de Portugal
+# Outras fontes de dados de Portugal
+
+Dados disponibilizados pela comunidade [Data Science for Social Good Portugal](https://github.com/dssg-pt/covid19pt-data)
+
+Projeto colaborativo e independente de monitorização do [COVID-19 em Portugal](https://github.com/aperaltasantos/covid_pt), por André Peralta Santos et al.
 
 Os dados da DGS também estão disponível a partir do [Ponto de Situação Atual em Portugal](https://covid19.min-saude.pt/ponto-de-situacao-atual-em-portugal/). Contudo, os dados estão (também) a ser introduzidos manualmente e têm diversas gralhas. 
 
 Sendo este um repositório aberto à participação, queremos eliminar os erros nos dados com a ajuda de todos. Se encontrar algum erro, por favor crie um *issue*.
 
-# Outras fontes de dados
+# Dados do mundo inteiro ou de outros países
 
 [European Centre for Disease Prevention and Control](https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases)
+
+## Bibliografia
+
+[Modelling the COVID-19 epidemic and implementation of population-wide interventions in Italy](https://www.nature.com/articles/s41591-020-0883-7)
+
+[Effective reproduction number estimation](https://staff.math.su.se/hoehle/blog/2020/04/15/effectiveR0.html)
+
+[Temporal variation in transmission during the COVID-19 outbreak](https://epiforecasts.io/covid/), coordenado pelo Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene and Tropical Medicine
+
