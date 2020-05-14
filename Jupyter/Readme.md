@@ -37,6 +37,8 @@ Dados adicionais: dentro de cada notebook, tem uma lista dos dados que são nece
 
 1.  Cruzar dados de uma tabela com um mapa, com os dados do ECDC: [ECDC.ipynb](ECDC.ipynb)
 1.  Cruzar dados de uma tabela com um mapa, com os dados da JHU e mapas do Natural Earth: [JHUeNE.ipynb](JHUeNE.ipynb)
+1.  Mostrar o Ponto da Situação de Portugal por percentagem de contágios na população: [Ponto da Situação em Percentagem.ipynb](Ponto%20da%20Situação%20em%20Percentagem.ipynb)
+
 
 ### Introdução aos modelos matemáticos
 
