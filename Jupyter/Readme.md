@@ -5,7 +5,7 @@ A partir do momento em que é preciso tratar sistematicamente muitos dados geogr
 Os dados da distribuição do COVID-19 são naturalmente geográficos e com uma componente temporal. São dados adequados para começar a aprender **Programação de informação espaciotemporal**.
 
 Vamos usar:
-1. A linguagem Python e alguns ods seu mais conhecidos módulos, como `pandas` e `matplotlib`
+1. A linguagem Python e alguns dos módulos mais conhecidos, como `pandas` e `matplotlib`
 1. O PyQGIS (explorar o QGIS a partir do Python)
 1. O Jupyter (que nos permite simultaneamente programar e documentar)
 
@@ -32,6 +32,8 @@ Os notebooks podem ser partilhados através dos repositórios do github. Caso o 
 1.  Ligar e tirar partido dos dados numa base de dados Postgresql: [SQL no Jupyter.ipynb](SQL%20no%20Jupyter.ipynb)
 
 ### Exercícios introdutórios
+
+Dados adicionais: dentro de cada notebook, tem uma lista dos dados que são necessários. Para cruzar dados do mundo inteiro, uma alternativa aos nomes, são os códigos dos países. Contudo há vários códigos possíveis (ISO, UEFA, etc). Neste [dataset](https://pkgstore.datahub.io/core/country-codes/country-codes_csv/data/3b9fd39bdadd7edd7f7dcee708f47e1b/country-codes_csv.csv) seguinte, tem os vários códigos comummente utilizados, entre outra informação igualmente interessante, como o continente a que pertencem, e a classificação entre desenvolvidos ou em desenvolvimento. 
 
 1.  Cruzar dados de uma tabela com um mapa, com os dados do ECDC: [ECDC.ipynb](ECDC.ipynb)
 1.  Cruzar dados de uma tabela com um mapa, com os dados da JHU e mapas do Natural Earth: [JHUeNE.ipynb](JHUeNE.ipynb)
