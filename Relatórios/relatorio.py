@@ -202,8 +202,12 @@ print()
 pagina = 3
 
 #coluna 1
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 70 -y 453 -W 148 -H 1130 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 219 -y 453 -W 57 -H 1130 {} -".format(pagina, pagina, report))
+if datetime.fromisoformat(args.date) >= datetime.fromisoformat("2020-05-23"):
+   x_1 = 70; x_2 = 219; y = 430; width_1 = 148; width_2 = 57; height = 1130
+else:
+   x_1 = 70; x_2 = 219; y = 453; width_1 = 148; width_2 = 57; height = 1130
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_1, y, width_1, height, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_2, y, width_2, height, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -213,8 +217,12 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 2
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 300 -y 453 -W 144 -H 1130 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 444 -y 453 -W 53 -H 1130 {} -".format(pagina, pagina, report))
+if datetime.fromisoformat(args.date) >= datetime.fromisoformat("2020-05-23"):
+   x_1 = 300; x_2 = 444; y = 430; width_1 = 144; width_2 = 53; height = 1130
+else:
+   x_1 = 300; x_2 = 444; y = 453; width_1 = 144; width_2 = 53; height = 1130
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_1, y, width_1, height, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_2, y, width_2, height, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -224,8 +232,12 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 3
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 520 -y 453 -W 148 -H 1130 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 668 -y 453 -W 53 -H 1130 {} -".format(pagina, pagina, report))
+if datetime.fromisoformat(args.date) >= datetime.fromisoformat("2020-05-23"):
+   x_1 = 520; x_2 = 668; y = 430; width_1 = 148; width_2 = 53; height = 1130
+else:
+   x_1 = 520; x_2 = 668; y = 453; width_1 = 148; width_2 = 53; height = 1130
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_1, y, width_1, height, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_2, y, width_2, height, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -235,8 +247,12 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 4
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 740 -y 453 -W 134 -H 1130 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 879 -y 453 -W 65 -H 1130 {} -".format(pagina, pagina, report))
+if datetime.fromisoformat(args.date) >= datetime.fromisoformat("2020-05-23"):
+   x_1 = 740; x_2 = 879; y = 430; width_1 = 134; width_2 = 65; height = 1130
+else:
+   x_1 = 740; x_2 = 879; y = 453; width_1 = 134; width_2 = 65; height = 1130
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_1, y, width_1, height, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_2, y, width_2, height, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
@@ -246,8 +262,12 @@ print("Concelhos vs Casos: {} {}".format(len(dados), len(casos)))
 generate_sql(sqlfile, dados, casos)
 
 #coluna 5
-stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 952 -y 453 -W 146 -H 1130 {} -".format(pagina, pagina, report))
-stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x 1102 -y 453 -W 65 -H 1130 {} -".format(pagina, pagina, report))
+if datetime.fromisoformat(args.date) >= datetime.fromisoformat("2020-05-23"):
+   x_1 = 952; x_2 = 1102; y = 430; width_1 = 146; width_2 = 65; height = 1130
+else:
+   x_1 = 952; x_2 = 1102; y = 453; width_1 = 146; width_2 = 65; height = 1130
+stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_1, y, width_1, height, report))
+stdoutcasos = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_2, y, width_2, height, report))
 dados = list(filter(None, stdoutdata.splitlines()))
 casos = list(filter(None, stdoutcasos.splitlines()))
 # print(dados)
