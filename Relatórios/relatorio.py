@@ -263,7 +263,7 @@ generate_sql(sqlfile, dados, casos)
 
 #coluna 5
 if datetime.fromisoformat(args.date) >= datetime.fromisoformat("2020-05-23"):
-   x_1 = 952; x_2 = 1102; y = 430; width_1 = 146; width_2 = 65; height = 1130
+   x_1 = 952; x_2 = 1110; y = 430; width_1 = 146; width_2 = 65; height = 1130
 else:
    x_1 = 952; x_2 = 1102; y = 453; width_1 = 146; width_2 = 65; height = 1130
 stdoutdata = subprocess.getoutput("pdftotext -f {} -l {} -r 150 -x {} -y {} -W {} -H {} {} -".format(pagina, pagina, x_1, y, width_1, height, report))
