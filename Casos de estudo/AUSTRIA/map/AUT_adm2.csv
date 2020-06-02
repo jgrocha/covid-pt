@@ -1,0 +1,100 @@
+"OBJECTID","ID_0","ISO","NAME_0","ID_1","NAME_1","ID_2","NAME_2","TYPE_2","ENGTYPE_2","NL_NAME_2","VARNAME_2"
+1,16,"AUT","Austria",1,"Burgenland",1,"Eisenstadt Umgebung","Bezirke","District",NA,NA
+2,16,"AUT","Austria",1,"Burgenland",2,"Eisenstadt","Statutarstädte","Statutory City",NA,NA
+3,16,"AUT","Austria",1,"Burgenland",3,"Güssing","Bezirke","District",NA,NA
+4,16,"AUT","Austria",1,"Burgenland",4,"Jennersdorf","Bezirke","District",NA,NA
+5,16,"AUT","Austria",1,"Burgenland",5,"Mattersburg","Bezirke","District",NA,NA
+6,16,"AUT","Austria",1,"Burgenland",6,"Neusiedl am See","Bezirke","District",NA,NA
+7,16,"AUT","Austria",1,"Burgenland",7,"Oberpullendorf","Bezirke","District",NA,NA
+8,16,"AUT","Austria",1,"Burgenland",8,"Oberwart","Bezirke","District",NA,NA
+9,16,"AUT","Austria",1,"Burgenland",9,"Rust",NA,NA,NA,NA
+10,16,"AUT","Austria",2,"Kärnten",10,"Feldkirchen","Bezirke","District",NA,NA
+11,16,"AUT","Austria",2,"Kärnten",11,"Hermagor","Bezirke","District",NA,NA
+12,16,"AUT","Austria",2,"Kärnten",12,"Klagenfurt Land","Bezirke","District",NA,NA
+13,16,"AUT","Austria",2,"Kärnten",13,"Klagenfurt","Statutarstädte","Statutory City",NA,NA
+14,16,"AUT","Austria",2,"Kärnten",14,"Sankt Veit an der Glan","Bezirke","District",NA,NA
+15,16,"AUT","Austria",2,"Kärnten",15,"Spittal an der Drau","Bezirke","District",NA,NA
+16,16,"AUT","Austria",2,"Kärnten",16,"Völkermarkt","Bezirke","District",NA,NA
+17,16,"AUT","Austria",2,"Kärnten",17,"Villach Land","Bezirke","District",NA,NA
+18,16,"AUT","Austria",2,"Kärnten",18,"Villach","Statutarstädte","Statutory City",NA,NA
+19,16,"AUT","Austria",2,"Kärnten",19,"Wolfsberg","Bezirke","District",NA,NA
+20,16,"AUT","Austria",3,"Niederösterreich",20,"Amstetten","Bezirke","District",NA,NA
+21,16,"AUT","Austria",3,"Niederösterreich",21,"Baden","Bezirke","District",NA,NA
+22,16,"AUT","Austria",3,"Niederösterreich",22,"Bruck an der Leitha","Bezirke","District",NA,NA
+23,16,"AUT","Austria",3,"Niederösterreich",23,"Gänserndorf","Bezirke","District",NA,NA
+24,16,"AUT","Austria",3,"Niederösterreich",24,"Gmünd","Bezirke","District",NA,NA
+25,16,"AUT","Austria",3,"Niederösterreich",25,"Hollabrunn","Bezirke","District",NA,NA
+26,16,"AUT","Austria",3,"Niederösterreich",26,"Horn","Bezirke","District",NA,NA
+27,16,"AUT","Austria",3,"Niederösterreich",27,"Korneuburg","Bezirke","District",NA,NA
+28,16,"AUT","Austria",3,"Niederösterreich",28,"Krems an der Donau Land","Bezirke","District",NA,NA
+29,16,"AUT","Austria",3,"Niederösterreich",29,"Krems an der Donau Stadt","Statutarstädte","Statutory City",NA,NA
+30,16,"AUT","Austria",3,"Niederösterreich",30,"Lilienfeld","Bezirke","District",NA,NA
+31,16,"AUT","Austria",3,"Niederösterreich",31,"Mödling","Bezirke","District",NA,NA
+32,16,"AUT","Austria",3,"Niederösterreich",32,"Melk","Bezirke","District",NA,NA
+33,16,"AUT","Austria",3,"Niederösterreich",33,"Mistelbach","Bezirke","District",NA,NA
+34,16,"AUT","Austria",3,"Niederösterreich",34,"Neunkirchen","Bezirke","District",NA,NA
+35,16,"AUT","Austria",3,"Niederösterreich",35,"Sankt Pölten Land","Bezirke","District",NA,NA
+36,16,"AUT","Austria",3,"Niederösterreich",36,"Sankt Pölten","Bezirke","District",NA,NA
+37,16,"AUT","Austria",3,"Niederösterreich",37,"Scheibbs","Bezirke","District",NA,NA
+38,16,"AUT","Austria",3,"Niederösterreich",38,"Tulln","Bezirke","District",NA,NA
+39,16,"AUT","Austria",3,"Niederösterreich",39,"Waidhofen an der Thaya","Bezirke","District",NA,NA
+40,16,"AUT","Austria",3,"Niederösterreich",40,"Waidhofen an der Ybbs","Statutarstädte","Statutory City",NA,NA
+41,16,"AUT","Austria",3,"Niederösterreich",41,"Wien Umgebung","Bezirke","District",NA,NA
+42,16,"AUT","Austria",3,"Niederösterreich",42,"Wiener Neustadt Land","Bezirke","District",NA,NA
+43,16,"AUT","Austria",3,"Niederösterreich",43,"Wiener Neustadt","Statutarstädte","Statutory City",NA,NA
+44,16,"AUT","Austria",3,"Niederösterreich",44,"Zwettl","Bezirke","District",NA,NA
+45,16,"AUT","Austria",4,"Oberösterreich",45,"Braunau am Inn","Bezirke","District",NA,NA
+46,16,"AUT","Austria",4,"Oberösterreich",46,"Eferding","Bezirke","District",NA,NA
+47,16,"AUT","Austria",4,"Oberösterreich",47,"Freistadt","Bezirke","District",NA,NA
+48,16,"AUT","Austria",4,"Oberösterreich",48,"Gmunden","Bezirke","District",NA,NA
+49,16,"AUT","Austria",4,"Oberösterreich",49,"Grieskirchen","Bezirke","District",NA,NA
+50,16,"AUT","Austria",4,"Oberösterreich",50,"Kirchdorf an der Krems","Bezirke","District",NA,NA
+51,16,"AUT","Austria",4,"Oberösterreich",51,"Linz Land","Bezirke","District",NA,NA
+52,16,"AUT","Austria",4,"Oberösterreich",52,"Linz","Statutarstädte","Statutory City",NA,NA
+53,16,"AUT","Austria",4,"Oberösterreich",53,"Perg","Bezirke","District",NA,NA
+54,16,"AUT","Austria",4,"Oberösterreich",54,"Ried im Innkreis","Bezirke","District",NA,NA
+55,16,"AUT","Austria",4,"Oberösterreich",55,"Rohrbach im Mühlkreis","Bezirke","District",NA,NA
+56,16,"AUT","Austria",4,"Oberösterreich",56,"Schärding","Bezirke","District",NA,NA
+57,16,"AUT","Austria",4,"Oberösterreich",57,"Steyr Land","Bezirke","District",NA,NA
+58,16,"AUT","Austria",4,"Oberösterreich",58,"Steyr","Statutarstädte","Statutory City",NA,NA
+59,16,"AUT","Austria",4,"Oberösterreich",59,"Urfahr Umgebung","Bezirke","District",NA,NA
+60,16,"AUT","Austria",4,"Oberösterreich",60,"Vöcklabruck","Bezirke","District",NA,NA
+61,16,"AUT","Austria",4,"Oberösterreich",61,"Wels Land","Bezirke","District",NA,NA
+62,16,"AUT","Austria",4,"Oberösterreich",62,"Wels","Statutarstädte","Statutory City",NA,NA
+63,16,"AUT","Austria",5,"Salzburg",63,"Hallein","Bezirke","District",NA,NA
+64,16,"AUT","Austria",5,"Salzburg",64,"Salzburg Umgebung","Bezirke","District",NA,NA
+65,16,"AUT","Austria",5,"Salzburg",65,"Salzburg","Statutarstädte","Statutory City",NA,NA
+66,16,"AUT","Austria",5,"Salzburg",66,"Sankt Johann im Pongau","Bezirke","District",NA,NA
+67,16,"AUT","Austria",5,"Salzburg",67,"Tamsweg","Bezirke","District",NA,NA
+68,16,"AUT","Austria",5,"Salzburg",68,"Zell am See","Bezirke","District",NA,NA
+69,16,"AUT","Austria",6,"Steiermark",69,"Bruck an der Mur","Bezirke","District",NA,NA
+70,16,"AUT","Austria",6,"Steiermark",70,"Deutschlandsberg","Bezirke","District",NA,NA
+71,16,"AUT","Austria",6,"Steiermark",71,"Fürstenfeld","Bezirke","District",NA,NA
+72,16,"AUT","Austria",6,"Steiermark",72,"Feldbach","Bezirke","District",NA,NA
+73,16,"AUT","Austria",6,"Steiermark",73,"Graz Umgebung","Bezirke","District",NA,NA
+74,16,"AUT","Austria",6,"Steiermark",74,"Graz","Statutarstädte","Statutory City",NA,NA
+75,16,"AUT","Austria",6,"Steiermark",75,"Hartberg","Bezirke","District",NA,NA
+76,16,"AUT","Austria",6,"Steiermark",76,"Judenburg","Bezirke","District",NA,NA
+77,16,"AUT","Austria",6,"Steiermark",77,"Knittelfeld","Bezirke","District",NA,NA
+78,16,"AUT","Austria",6,"Steiermark",78,"Leibnitz","Bezirke","District",NA,NA
+79,16,"AUT","Austria",6,"Steiermark",79,"Leoben","Bezirke","District",NA,NA
+80,16,"AUT","Austria",6,"Steiermark",80,"Liezen","Bezirke","District",NA,NA
+81,16,"AUT","Austria",6,"Steiermark",81,"Mürzzuschlag","Bezirke","District",NA,NA
+82,16,"AUT","Austria",6,"Steiermark",82,"Murau","Bezirke","District",NA,NA
+83,16,"AUT","Austria",6,"Steiermark",83,"Radkersburg","Bezirke","District",NA,NA
+84,16,"AUT","Austria",6,"Steiermark",84,"Voitsberg","Bezirke","District",NA,NA
+85,16,"AUT","Austria",6,"Steiermark",85,"Weiz","Bezirke","District",NA,NA
+86,16,"AUT","Austria",7,"Tirol",86,"Imst","Bezirke","District",NA,NA
+87,16,"AUT","Austria",7,"Tirol",87,"Innsbruck Land","Bezirke","District",NA,NA
+88,16,"AUT","Austria",7,"Tirol",88,"Innsbruck","Statutarstädte","Statutory City",NA,NA
+89,16,"AUT","Austria",7,"Tirol",89,"Kitzbühel","Bezirke","District",NA,NA
+90,16,"AUT","Austria",7,"Tirol",90,"Kufstein","Bezirke","District",NA,NA
+91,16,"AUT","Austria",7,"Tirol",91,"Landeck","Bezirke","District",NA,NA
+92,16,"AUT","Austria",7,"Tirol",92,"Lienz","Bezirke","District",NA,NA
+93,16,"AUT","Austria",7,"Tirol",93,"Reutte","Bezirke","District",NA,NA
+94,16,"AUT","Austria",7,"Tirol",94,"Schwaz","Bezirke","District",NA,NA
+95,16,"AUT","Austria",8,"Vorarlberg",95,"Bludenz","Bezirke","District",NA,NA
+96,16,"AUT","Austria",8,"Vorarlberg",96,"Bregenz","Bezirke","District",NA,NA
+97,16,"AUT","Austria",8,"Vorarlberg",97,"Dornbirn","Bezirke","District",NA,NA
+98,16,"AUT","Austria",8,"Vorarlberg",98,"Feldkirch","Bezirke","District",NA,NA
+99,16,"AUT","Austria",9,"Wien",99,"Wien","Statutarstädte","Statutory City",NA,NA
