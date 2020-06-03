@@ -1,0 +1,9 @@
+subregion1_name,total_confirmed,total_deceased,total_recovered,total_tested,total_hospitalized
+Australian Capital Territory,6606.0,159.0,4983.0,605693.0,0.0
+New South Wales,186056.0,2102.0,97822.0,15171097.0,0.0
+Northern Territory,1726.0,0.0,1079.0,273592.0,0.0
+Queensland,65032.0,328.0,43657.0,6969780.0,0.0
+South Australia,27770.0,200.0,19974.0,3603324.0,0.0
+Tasmania,11573.0,555.0,7151.0,750867.0,0.0
+Victoria,87335.0,929.0,70925.0,10867581.0,0.0
+Western Australia,33713.0,448.0,24698.0,2670767.0,0.0
