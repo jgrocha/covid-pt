@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OGRVRTDataSource>
+    <OGRVRTLayer name="ECDC_continente-ECDC_continente">
+        <SrcDataSource relativeToVRT="1">ECDC_continente.csv</SrcDataSource>
+        <!--Header=False-->
+        <SrcLayer>ECDC_continente</SrcLayer>
+        <Field name="continentExp" src="continentExp" type="String"/>
+        <Field name="cases" src="cases" type="Integer"/>
+        <Field name="deaths" src="deaths" type="Integer"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>
