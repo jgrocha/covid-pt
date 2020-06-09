@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OGRVRTDataSource>
+    <OGRVRTLayer name="cases_country-cases_country">
+        <SrcDataSource relativeToVRT="1">cases_country.csv</SrcDataSource>
+        <!--Header=False-->
+        <SrcLayer>cases_country</SrcLayer>
+        <Field name="Country_Region" src="Country_Region" type="String"/>
+        <Field name="Last_Update" src="Last_Update" type="String"/>
+        <Field name="Lat" src="Lat" type="String"/>
+        <Field name="Long_" src="Long_" type="String"/>
+        <Field name="Confirmed" src="Confirmed" type="Integer"/>
+        <Field name="Deaths" src="Deaths" type="Integer"/>
+        <Field name="Recovered" src="Recovered" type="Integer"/>
+        <Field name="Active" src="Active" type="String"/>
+        <Field name="Incident_Rate" src="Incident_Rate" type="String"/>
+        <Field name="People_Tested" src="People_Tested" type="String"/>
+        <Field name="People_Hospitalized" src="People_Hospitalized" type="String"/>
+        <Field name="Mortality_Rate" src="Mortality_Rate" type="String"/>
+        <Field name="UID" src="UID" type="String"/>
+        <Field name="ISO3" src="ISO3" type="String"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>
